@@ -39,7 +39,7 @@ const photosStore = new UploadFS.store.WABS({
 
 There are two approaches to safely storing your WABS credentials:
 
-1. As system environment variables (Amazon's [recommended approach].
+1. As system environment variables (See: https://github.com/Azure/azure-storage-node [recommended approach]).
 2. As given in the above code but located in a directory named `server` (note: wrapping in `Meteor.isServer` is **NOT**
 secure).
 
