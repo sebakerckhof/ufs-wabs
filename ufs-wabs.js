@@ -60,10 +60,14 @@ UploadFS.store.WABS = function (options) {
          * @param callback
          */
         store.delete = function (fileId, callback) {
+                if (typeof callback !== 'function') {
+                    callback = function (err) {
+                        err && console.error(`ufs: cannot delete file "${ fileId }" at ${ path } (${ err.message })`);
+                    }
+                }
+
               WABSBlobService.deleteBlob(container, folder + fileId, function(error) {
-                  if(callback){
-                      callback(error, !error);
-                  }
+                  callback(error, !error);
               });
         };
 
