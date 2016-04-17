@@ -61,7 +61,9 @@ UploadFS.store.WABS = function (options) {
          */
         store.delete = function (fileId, callback) {
               WABSBlobService.deleteBlob(container, folder + fileId, function(error) {
-                callback(error, !error);
+                  if(callback){
+                      callback(error, !error);
+                  }
               });
         };
 
